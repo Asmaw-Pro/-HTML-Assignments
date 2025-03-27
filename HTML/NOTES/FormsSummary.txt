@@ -1,0 +1,118 @@
+النماذج في HTML (Forms)
+النماذج (Forms) هي الطريقة اللي من خلالها المستخدم يقدر يرسل بيانات للموقع، زي تسجيل الدخول، البحث، أو إرسال تعليق.
+
+1. إنشاء نموذج بسيط
+أي نموذج بيبدأ بعنصر <form>، وعادة بيكون ليه شوية Attributes أساسية:
+
+action: بتحدد الوجهة اللي هتروح ليها البيانات بعد الإرسال (ملف أو سيرفر).
+
+method: طريقة الإرسال، وبتكون إما:
+
+GET (بتحط البيانات في الـ URL، مناسبة للبحث والاستعلامات البسيطة).
+
+POST (بتبعت البيانات في الخلفية، مناسبة للحاجات اللي فيها بيانات حساسة زي تسجيل الدخول).
+
+<form action="submit.php" method="post">
+</form>
+2. أنواع الإدخال في HTML (Input Types)
+عنصر <input> هو أهم عنصر في الـ form، وليه أنواع مختلفة:
+
+text: حقل نصي عادي
+<input type="text" name="username" placeholder="اكتب اسم المستخدم">
+password: بيخلي النص مخفي.
+<input type="password" name="password" placeholder="كلمة السر">
+email: يقبل فقط البريد الإلكتروني.
+<input type="email" name="email" placeholder="بريدك الإلكتروني">
+number: يسمح بإدخال أرقام فقط.
+<input type="number" name="age" min="18" max="99">
+tel: لحقل رقم الهاتف.
+<input type="tel">
+url: يقبل الروابط فقط.
+<input type="url">
+search: حقل بحث
+<input type="search">
+file: لرفع ملفات.
+<input type="file">
+date, time, datetime-local, month, week: لإدخال تواريخ وأوقات.
+color: لاختيار لون.
+<input type="color">
+range: شريط منزلق لاختيار قيمة.
+<input type="range" name="volume" min="0" max="100">
+checkbox: يسمح باختيار أكتر من اختيار.
+<input type="checkbox" name="subscribe"> اشترك في القائمة البريدية
+radio: يسمح باختيار اختيار واحد فقط من مجموعة.
+<input type="radio" name="gender" value="male"> ذكر
+<input type="radio" name="gender" value="female"> أنثى
+submit: زر الإرسال.
+<input type="submit" value="إرسال">
+reset: زر لإعادة القيم الافتراضية.
+<input type="reset" value="إعادة تعيين">
+
+
+3. استخدام <label> لتحسين الوصولية
+عنصر <label> بيربط نص بالحقل اللي قبله، وبيخلي النقر على النص يحدد الحقل.
+
+<label for="username">اسم المستخدم:</label>
+<input type="text" id="username" name="username">
+4. زر الإرسال وإعادة التعيين
+<input type="submit">: بيبعت البيانات اللي في النموذج.
+
+<input type="reset">: بيعيد القيم الافتراضية.
+
+
+
+
+<input type="submit" value="إرسال">
+<input type="reset" value="إعادة تعيين">
+5. الحقول الإلزامية والمقيدة
+required: بيجبر المستخدم على ملء الحقل.
+<input type="text" name="username" required>
+readonly: بيعرض قيمة بدون تعديل.
+<input type="text" name="country" value="Egypt" readonly>
+disabled: بيعطل الحقل.
+<input type="text" name="disabled-field" disabled>
+maxlength="عدد": بيحدد أقصى عدد حروف.
+<input type="password" maxlength="20">
+min و max: بيحددوا أقل وأكبر قيمة للأرقام.
+<input type="number" name="age" min="18" max="60">
+
+6. textarea لإدخال نصوص طويلة
+<textarea> بنستخدمها لما نحتاج إدخال نص طويل، زي التعليقات أو الرسائل.
+<textarea name="message" rows="4" cols="50">اكتب رسالتك هنا...</textarea>
+
+7. القوائم المنسدلة <select>
+بنستخدم <select> لإنشاء قائمة منسدلة، وبيكون جواها <option> لكل اختيار.
+
+<select name="country">
+  <option value="eg">مصر</option>
+  <option value="sa">السعودية</option>
+  <option value="us">أمريكا</option>
+</select>
+8. datalist لإنشاء قائمة اقتراحات تلقائية
+بتضيف اقتراحات للحقل بدون إجبار المستخدم على الاختيار منها.
+
+<input type="text" list="languages">
+<datalist id="languages">
+  <option value="HTML">
+  <option value="CSS">
+  <option value="JavaScript">
+</datalist>
+9. fieldset و legend لتجميع العناصر
+<fieldset> بيستخدم لتجميع عناصر مرتبطة داخل مستطيل، و <legend> بتكون عنوان للمجموعة.
+
+<fieldset>
+  <legend>معلومات الحساب</legend>
+  <label>اسم المستخدم:</label>
+  <input type="text" name="username">
+  <label>البريد الإلكتروني:</label>
+  <input type="email" name="email">
+</fieldset>
+10. novalidate لتعطيل التحقق التلقائي
+بنستخدم novalidate في <form> لتعطيل التحقق من البيانات ,خصوصا لو عايزين نختبر الكود من غير ما نضطر نكتب كل البيانات.
+
+<form action="submit.php" method="post" novalidate>
+11. autocomplete و autofocus لتجربة مستخدم أفضل
+autocomplete="on": بيخزن بيانات المستخدم ويعرضها تلقائيًا.
+autofocus: بيركز تلقائيًا على الحقل عند فتح الصفحة.
+
+<input type="text" name="username" autocomplete="on" autofocus>
