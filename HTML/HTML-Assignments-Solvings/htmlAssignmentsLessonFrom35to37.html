@@ -9,7 +9,7 @@
     <!-- Assingment 1 -->
     
     <!--ما هو العنصر المناسب لوضعه داخل النموذج لإرسال البيانات عند الضغط عليه ؟-->
-        <input type="submit">
+    <input type="submit">
 
     <!-- ما هو العنصر المناسب ليكون عنوان للصفحة كاملة؟ -->
     <h1></h1>
@@ -38,12 +38,36 @@
     -->
     
     <!-- Assingment 2 -->
-    <div class="choose-skill">
-        <div aria-labelledby="Python" class="skill" tabindex="0">Python</div>
-        <label id="Python">Skill One</label>
-        <div aria-labelledby="PHP" class="skill" tabindex="0">PHP</div>
+    <div class="choose-skill" role="group" aria-label="choose skill">
+        <div 
+            class="skill" 
+            role="checkbox"
+            tabindex="0"
+            aria-labelledby="Python" 
+            aria-checked="false"
+        >
+            Python 
+        </div>
+            <label id="Python">Skill One</label>
+        <div 
+            class="skill" 
+            role="checkbox"
+            tabindex="0"
+            aria-labelledby="PHP" 
+            aria-checked="false"
+        >
+            PHP
+        </div>
         <label id="PHP">Skill Two</label>
-        <div aria-labelledby="JavaScript" class="skill" tabindex="0">JavaScript</div>
+        <div 
+            class="skill" 
+            role="checkbox"
+            tabindex="0"
+            aria-labelledby="JavaScript" 
+            aria-checked="false"
+        >
+            JavaScript
+        </div>
         <label id="JavaScript" >Skill Three</label>
     </div>
     
